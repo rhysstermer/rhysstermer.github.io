@@ -209,15 +209,22 @@ i {
   display: grid;
   place-content: center;
   gap: 1rem;
-  transform: translateX(100%);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
   padding: 6rem 2rem 2rem;
   width: auto;
   text-align: center;
-  transition: transform 220ms ease;
+  transition:
+    opacity 220ms ease,
+    visibility 0s linear 220ms;
 }
 
 .has-js .primary-nav.is-open {
-  transform: translateX(0);
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0s;
 }
 
 .primary-nav a {
@@ -994,6 +1001,12 @@ i {
   }
 }
 
+@media (max-width: 859px) {
+  .site-header {
+    backdrop-filter: none;
+  }
+}
+
 @media (min-width: 860px) {
   h1 {
     font-size: 6.18rem;
@@ -1012,6 +1025,9 @@ i {
     position: static;
     display: flex;
     transform: none;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
     align-items: center;
     justify-content: flex-end;
     gap: 1.1rem;

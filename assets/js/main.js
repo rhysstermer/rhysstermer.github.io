@@ -64,7 +64,7 @@
         return 1;
       }
       var cardWidth = cards[0].getBoundingClientRect().width || viewport.clientWidth;
-      return Math.max(1, Math.round(viewport.clientWidth / cardWidth));
+      return Math.max(1, Math.floor(viewport.clientWidth / cardWidth));
     };
 
     var getStep = function () {
